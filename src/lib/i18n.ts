@@ -1,0 +1,14 @@
+export type Language = "en" | "vi";
+
+export const UI_COPY = {
+  en: {
+    freeTool: "Free tool", eyebrow: "CONTACT QR CODE GENERATOR", title: "Share your contact with one scan.", subtitle: "Create a vCard QR code from a phone number and contact details. Scan it with a modern phone to save the contact instantly.", details: "Contact details", privacy: "Your data stays in this browser and is encoded directly into the QR code.", note: "Note", notePlaceholder: "Optional note", preview: "Preview", emptyQr: "Enter a name or phone number to generate your QR code.", png: "Download PNG", jpg: "Download JPG", more: "More download options", vcf: "Download .vcf", copied: "Copied", raw: "Copy raw vCard", viewRaw: "View raw vCard", jpgError: "JPG download is unavailable in this browser.", clipboardError: "Clipboard access is unavailable. Use View raw vCard and copy it manually.", how: "How it works", languageButton: "Tiếng Việt",
+    steps: [["Enter details", "Add a phone number, name, email, and any optional information."], ["Show the QR", "Put the code on a screen, business card, badge, or email signature."], ["Scan and save", "Open the camera, scan the code, and save the contact card."]],
+    fields: { firstName: ["First name", "e.g. Ada"], lastName: ["Last name", "e.g. Lovelace"], phone: ["Phone number", "+1 555 123 4567"], email: ["Email", "ada@example.com"], organization: ["Company / organization", "Analytical Engines"], title: ["Job title", "Founder"], website: ["Website", "https://example.com"] }
+  },
+  vi: {
+    freeTool: "Công cụ miễn phí", eyebrow: "TẠO MÃ QR LIÊN HỆ", title: "Chia sẻ liên hệ chỉ với một lần quét.", subtitle: "Tạo mã QR vCard từ số điện thoại và thông tin liên hệ. Quét bằng điện thoại để lưu liên hệ ngay lập tức.", details: "Thông tin liên hệ", privacy: "Dữ liệu chỉ được xử lý trên trình duyệt và mã hóa trực tiếp vào mã QR.", note: "Ghi chú", notePlaceholder: "Ghi chú tùy chọn", preview: "Xem trước", emptyQr: "Nhập tên hoặc số điện thoại để tạo mã QR.", png: "Tải PNG", jpg: "Tải JPG", more: "Tùy chọn khác", vcf: "Tải .vcf", copied: "Đã sao chép", raw: "Sao chép vCard", viewRaw: "Xem vCard gốc", jpgError: "Không thể tải JPG trên trình duyệt này.", clipboardError: "Không thể truy cập bộ nhớ tạm. Hãy mở vCard gốc và sao chép thủ công.", how: "Cách sử dụng", languageButton: "English",
+    steps: [["Nhập thông tin", "Thêm số điện thoại, tên, email và các thông tin tùy chọn."], ["Hiển thị mã QR", "Đặt mã trên màn hình, danh thiếp, bảng tên hoặc chữ ký email."], ["Quét và lưu", "Mở camera, quét mã và lưu thẻ liên hệ."]],
+    fields: { firstName: ["Tên", "Ví dụ: Ada"], lastName: ["Họ", "Ví dụ: Lovelace"], phone: ["Số điện thoại", "+84 912 345 678"], email: ["Email", "ada@example.com"], organization: ["Công ty / tổ chức", "Analytical Engines"], title: ["Chức vụ", "Nhà sáng lập"], website: ["Website", "https://example.com"] }
+  }
+} as const;
