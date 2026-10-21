@@ -28,5 +28,5 @@ npm run build
 npx wrangler pages deploy out --project-name=qr-code-generator --branch=main
 ```
 
-Then attach the custom domain `qr-code-generator.kaviosoftware.com` in Cloudflare Pages under **Custom domains**.
+Then attach the custom domain `qr-code-generator.kaviosoftware.com` in Cloudflare Pages under **Custom domains**. The Cloudflare Pages project is named `qr-code-generator`.
 
