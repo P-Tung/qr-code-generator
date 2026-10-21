@@ -2,7 +2,11 @@ export interface VCardInput {
   firstName?: string; lastName?: string; organization?: string; title?: string; phone?: string; email?: string; website?: string; note?: string;
 }
 
-const escapeValue = (value: string) => value.replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
+const escapeValue = (value: string) => value
+  .replace(/\\/g, "\\\\")
+  .replace(/;/g, "\\;")
+  .replace(/,/g, "\\,")
+  .replace(/\r\n|\r|\n/g, "\\n");
 const add = (lines: string[], key: string, value?: string) => { const trimmed = value?.trim(); if (trimmed) lines.push(`${key}:${escapeValue(trimmed)}`); };
 
 export function buildVCard(input: VCardInput): string {
@@ -16,5 +20,5 @@ export function buildVCard(input: VCardInput): string {
   if (phone) lines.push(`TEL;TYPE=CELL:${escapeValue(phone)}`);
   add(lines, "ORG", input.organization); add(lines, "TITLE", input.title); add(lines, "EMAIL;TYPE=INTERNET", input.email); add(lines, "URL", input.website); add(lines, "NOTE", input.note);
   lines.push("END:VCARD");
-  return lines.join("\n");
+  return lines.join("\r\n");
 }
