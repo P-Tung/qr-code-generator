@@ -19,6 +19,14 @@ npm run dev
 
 Open `http://localhost:3000`.
 
-## Cloudflare
+## Cloudflare Pages
 
-Deploy this Next.js app with Cloudflare Pages/Workers using the current Next-on-Pages or OpenNext adapter for your Cloudflare account. Point the custom hostname `qr-code-generator.kaviosoftware.com` at the deployed project.
+This project is configured as a static Next.js export (`out/`) for Cloudflare Pages. Deploy with:
+
+```bash
+npm run build
+npx wrangler pages deploy out --project-name=qr-code-generator --branch=main
+```
+
+Then attach the custom domain `qr-code-generator.kaviosoftware.com` in Cloudflare Pages under **Custom domains**.
+
