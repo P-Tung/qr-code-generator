@@ -30,7 +30,7 @@ export default function ContactQr() {
   const set = (key:keyof Inputs,value:string) => { setInputs(current=>({...current,[key]:value})); clearErrors(); };
   const changeDesign = (patch: Partial<QrDesign>) => { setDesign((current)=>({ ...current, ...patch })); clearErrors(); };
   const changeLogo = (next: LogoFile | null) => { setLogo(next); clearErrors(); };
-  const fileBase = ([inputs.firstName,inputs.lastName].filter(Boolean).join("-")||"contact").replace(/[^a-z0-9_-]+/gi,"-").replace(/^-|-$/g,"") || "contact";
+  const fileBase = ([inputs.firstName,inputs.lastName].filter(Boolean).join("-")||"contact").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/gi,"d").replace(/[^a-z0-9_-]+/gi,"-").replace(/^-|-$/g,"") || "contact";
   const downloadBlob = (blob: Blob, filename: string) => { const url=URL.createObjectURL(blob); const a=document.createElement("a"); a.href=url; a.download=filename; a.click(); window.setTimeout(()=>URL.revokeObjectURL(url),1000); };
   const downloadQr = async (format: "png" | "jpeg") => {
     if (!vcard || busy) return;

@@ -22,3 +22,5 @@ export function buildVCard(input: VCardInput): string {
   lines.push("END:VCARD");
   return lines.join("\r\n");
 }
+
+export const toUtf8Binary = (s: string) => String.fromCharCode(...new TextEncoder().encode(s));

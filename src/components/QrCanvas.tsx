@@ -2,6 +2,7 @@
 import { useEffect, useImperativeHandle, useRef, useState, type Ref } from "react";
 import type QRCodeStyling from "qr-code-styling";
 import { PATTERNS, composeLogo, type LogoFile, type PlateStyle, type QrDesign } from "@/lib/qr-design";
+import { toUtf8Binary } from "@/lib/vcard";
 
 const RENDER_SIZE = 1024;
 const QUIET_ZONE = 64;
@@ -19,10 +20,11 @@ type Props = {
   ref?: Ref<QrCanvasHandle>;
 };
 
+// qr-code-styling keeps only the low byte of each char (breaks Vietnamese); feed it UTF-8 bytes as chars.
 function buildOptions(value: string, design: QrDesign, image: string | null) {
   const pattern = PATTERNS[design.pattern];
   return {
-    data: value,
+    data: toUtf8Binary(value),
     image: image ?? undefined,
     width: RENDER_SIZE,
     height: RENDER_SIZE,
